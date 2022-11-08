@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Contexts/AuthProvider";
 
 const Header = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  // console.log('header user: ', user);
+
+  const handleSignOut = () =>{
+    signOutUser()
+    .then()
+    .catch(e=>console.error('logout error => ', e));
+  };
+
   return (
     <div>
       <div className="navbar bg-base-200">
@@ -51,22 +62,28 @@ const Header = () => {
                     <Link to="/">Submenu 2</Link>
                   </li>
                 </ul>
+              </li><li>
+                <Link to="/add-service">Add Service</Link>
               </li>
-              <li>
-                <Link to="/">Blog</Link>
-              </li>
-              <li>
-                <Link to="/">Login</Link>
-              </li>
-              <li>
-                <Link to="/">SignUp</Link>
-              </li>
-              <li>
-                <Link to="/">Logout</Link>
-              </li>
-              <li>
-                <Link to="/">Add Service</Link>
-              </li>
+              {user?.email ? (
+                <>
+                  <li>
+                    <Link to="/my-reviews">My Reviews</Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleSignOut}>Logout</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">SignUp</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -79,7 +96,7 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
-              <Link to="/">
+              <Link to="/services">
                 Services
                 <svg
                   className="fill-current"
@@ -100,26 +117,36 @@ const Header = () => {
                 </li>
               </ul>
             </li>
-              <li>
-                <Link to="/">Blog</Link>
+            <li>
+              <Link to="/">Blog</Link>
+            </li>
+            <li>
+                <Link to="/add-service">Add Service</Link>
               </li>
-            <li>
-              <Link to="/">Login</Link>
-            </li>
-            <li>
-              <Link to="/">SignUp</Link>
-            </li>
-            <li>
-              <Link to="/">Logout</Link>
-            </li>
-            <li>
-              <Link to="/">Add Service</Link>
-            </li>
+            {user?.email ? (
+              <>
+              <li>
+                <Link to="/my-reviews">My Reviews</Link>
+              </li>
+                <li>
+                  <Link onClick={handleSignOut}>Logout</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">SignUp</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/" className="btn">
-            Get started
+          <Link to="/" className="">
+            {user?.email ? user.email : "No user"}
           </Link>
         </div>
       </div>
