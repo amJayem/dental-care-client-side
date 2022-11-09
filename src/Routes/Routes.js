@@ -6,6 +6,7 @@ import Login from '../Page/Login/Login';
 import MyReviews from '../Page/MyReviews/MyReviews';
 import Register from '../Page/Register/Register';
 import AddService from '../Page/Services/AddService';
+import ServiceDetails from '../Page/Services/ServiceDetails';
 import Services from '../Page/Services/Services';
 import PrivateRoute from './PrivateRoute';
 
@@ -20,7 +21,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services/>
+                element: <Services/>,
+                loader: ()=>fetch('http://localhost:5000/services')
+            },
+            {
+                path: 'services/:id',
+                element: <ServiceDetails/>,
+                loader: ({params})=>fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
                 path: '/add-service',
