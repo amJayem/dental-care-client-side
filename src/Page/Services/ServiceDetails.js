@@ -5,7 +5,7 @@ const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
     const {title,img,price,description} = serviceDetails;
     return (
-        <div className='my-20'>
+        <div>
             <div>
                 <h1 className='text-center font-semibold text-5xl'>{title}</h1>
             </div>
