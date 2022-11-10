@@ -24,11 +24,22 @@ const Login = () => {
 
     signInUser(email, password)
       .then((data) => {
-        // console.log('email sign up: ',data.user);
-        navigate(from, { replace: true });
-        // if (user?.email) {
-        //     form.reset();
-        // }
+        const user = data.user;
+        const currentUser = { email: user.email};
+
+        fetch('http://localhost:5000/jwt',{
+          method: "POST",
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log('data after sending jwt: ',data);
+          localStorage.setItem('token',data.token);
+          navigate(from, {replace: true});
+        });
       })
       .catch((e) => console.error("email signup error => ", e));
   };
