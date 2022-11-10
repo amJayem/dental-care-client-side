@@ -3,6 +3,9 @@ import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import ReviewsAll from "../Reviews/ReviewsAll";
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
@@ -38,11 +41,16 @@ const ServiceDetails = () => {
 
   return (
     <div>
+      
       <div>
         <h1 className="text-center font-semibold text-5xl">{title}</h1>
       </div>
       <div>
-        <img src={img} alt="img" />
+          <PhotoProvider>
+              <PhotoView key={1} src={img}>
+                <img src={img} alt="" />
+              </PhotoView>
+          </PhotoProvider>
         <p>{description}</p>
         <p className="font-semibold my-10">Price of this service: {price}</p>
       </div>
