@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
+import SetTitle from "../../hooks/setTitle";
 
 const AddService = () => {
+  SetTitle('Add service');
 
     const handleSubmit = e => {
         e.preventDefault();

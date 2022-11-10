@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Contexts/AuthProvider";
-import ReviewsAll from "../Reviews/ReviewsAll";
-import 'react-photo-view/dist/react-photo-view.css';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import SetTitle from "../../hooks/setTitle";
 
 const ServiceDetails = () => {
+  SetTitle('Service Details');
   const serviceDetails = useLoaderData();
   const { service_id, title, img, price, description } = serviceDetails;
 
@@ -31,9 +30,9 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        if(data.acknowledged){
-            form.reset();
-            toast.success('Review Submitted')
+        if (data.acknowledged) {
+          form.reset();
+          toast.success("Review Submitted");
         }
       })
       .catch((e) => console.error("review submit error => ", e));
@@ -41,16 +40,15 @@ const ServiceDetails = () => {
 
   return (
     <div>
-      
       <div>
         <h1 className="text-center font-semibold text-5xl">{title}</h1>
       </div>
       <div>
-          <PhotoProvider>
-              <PhotoView key={1} src={img}>
-                <img src={img} alt="" />
-              </PhotoView>
-          </PhotoProvider>
+        <PhotoProvider>
+          <PhotoView key={1} src={img}>
+            <img src={img} alt="" />
+          </PhotoView>
+        </PhotoProvider>
         <p>{description}</p>
         <p className="font-semibold my-10">Price of this service: {price}</p>
       </div>
@@ -58,8 +56,9 @@ const ServiceDetails = () => {
         <Link className="btn btn-info text-white">Book your appointment</Link>
       </div>
       <div>
-        <h2 className="text-center text-2xl font-semibold"><Link to='/all-reviews'>Reviews</Link></h2>
-        
+        <h2 className="text-center text-2xl font-semibold">
+          <Link to="/all-reviews">Reviews</Link>
+        </h2>
         <hr />
         {/* <ReviewsAll/> */}
       </div>

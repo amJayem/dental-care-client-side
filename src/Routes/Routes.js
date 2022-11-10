@@ -61,6 +61,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register/>
+            },
+            {
+                path: '*',
+                element: <div>
+                    <h1 className='text-9xl blur'>Error!!!</h1>
+                    </div>
             }
         ]
     }

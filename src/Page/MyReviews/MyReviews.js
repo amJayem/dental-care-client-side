@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import SetTitle from "../../hooks/setTitle";
 
 const MyReviews = () => {
+  SetTitle('My Reviews');
+
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
@@ -22,19 +26,19 @@ const MyReviews = () => {
   }, [user?.email]);
 
   // update review
-  const handleUpdate = (id,e) =>{
-    e.preventDefault();
-    const form = e.target;
-    const comment = form.updateComment.value;
-    const rating = form.updateRating.value;
-    const updateReview = {comment, rating};
-    console.log(id,updateReview);
+  // const handleUpdate = (id,e) =>{
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const comment = form.updateComment.value;
+  //   const rating = form.updateRating.value;
+  //   const updateReview = {comment, rating};
+  //   console.log(id,updateReview);
 
-    // fetch(`http://localhost:5000/reviews/${id}`,{
+  //   fetch(`http://localhost:5000/reviews/${id}`,{
 
-    // })
+  //   })
 
-  };
+  // };
 
   const handleDelete = id => {
     // console.log(id);
@@ -48,6 +52,7 @@ const MyReviews = () => {
       .then(data=>{
         console.log(data);
         if(data.deletedCount > 0){
+          toast('Deleted Successfully')
           const remaining = reviews.filter(r=>r._id !== id);
           setReviews(remaining);
         }

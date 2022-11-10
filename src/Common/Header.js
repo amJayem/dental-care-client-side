@@ -66,11 +66,11 @@ const Header = () => {
               <li>
                 <Link to='/blog'>Blog</Link>
               </li>
-              <li>
-                <Link to="/add-service">Add Service</Link>
-              </li>
               {user?.email ? (
                 <>
+                <li>
+                  <Link to="/add-service">Add Service</Link>
+                </li>
                   <li>
                     <Link to="/my-reviews">My Reviews</Link>
                   </li>
@@ -122,13 +122,13 @@ const Header = () => {
               </ul>
             </li>
             <li>
-              <Link to="/">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
-            <li>
-                <Link to="/add-service">Add Service</Link>
-              </li>
             {user?.email ? (
               <>
+              <li>
+                  <Link to="/add-service">Add Service</Link>
+                </li>
               <li>
                 <Link to="/my-reviews">My Reviews</Link>
               </li>

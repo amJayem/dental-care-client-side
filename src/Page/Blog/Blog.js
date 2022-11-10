@@ -1,6 +1,8 @@
 import React from "react";
+import SetTitle from "../../hooks/setTitle";
 
 const Blog = () => {
+  SetTitle('Blog');
   return (
     <div className="grid grid-cols-1 gap-4">
       <div className="card bg-base-100 shadow-xl">
