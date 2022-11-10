@@ -1,13 +1,13 @@
-import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import SetTitle from "../../hooks/setTitle";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   SetTitle("Register");
-  const { signUpUser, signInWithSocial } = useContext(AuthContext);
-  const providerGoogle = new GoogleAuthProvider();
+  const { signUpUser } = useContext(AuthContext);
+  
 
   const navigate = useNavigate();
 
@@ -32,14 +32,6 @@ const Register = () => {
         }
     })
       .catch((e) => console.error("email signup error => ", e));
-  };
-
-  const handleGoogleSignIn = () => {
-    signInWithSocial(providerGoogle)
-      .then(data=>{
-            console.log(data.user)
-        })
-      .catch((e) => console.error("google signIn error => ", e));
   };
 
   return (
@@ -104,11 +96,7 @@ const Register = () => {
                 <button className="btn btn-primary">Create Account</button>
               </div>
             </form>
-            <div className="text-center m-6">
-              <button onClick={handleGoogleSignIn} className="btn bg-green-500">
-                Google
-              </button>
-            </div>
+            <SocialLogin/>
           </div>
         </div>
       </div>

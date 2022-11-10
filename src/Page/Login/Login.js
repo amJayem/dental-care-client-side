@@ -1,13 +1,13 @@
-import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import SetTitle from "../../hooks/setTitle";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   SetTitle("Login");
-  const { signInUser, signInWithSocial } = useContext(AuthContext);
-  const providerGoogle = new GoogleAuthProvider();
+  const { signInUser } = useContext(AuthContext);
+
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,8 +19,6 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // const user = { email, password };
-    // console.log(user);
 
     signInUser(email, password)
       .then((data) => {
@@ -36,21 +34,12 @@ const Login = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-          console.log('data after sending jwt: ',data);
+          // console.log('data after sending jwt: ',data);
           localStorage.setItem('token',data.token);
           navigate(from, {replace: true});
         });
       })
       .catch((e) => console.error("email signup error => ", e));
-  };
-
-  const handleGoogleSignIn = () => {
-    signInWithSocial(providerGoogle)
-      .then((data) => {
-        // console.log(data.user);
-        navigate(from, { replace: true });
-      })
-      .catch((e) => console.error("google signIn error => ", e));
   };
 
   return (
@@ -92,11 +81,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <div className="text-center m-6">
-            <button onClick={handleGoogleSignIn} className="btn bg-green-500">
-              Google
-            </button>
-          </div>
+          <SocialLogin/>
         </div>
       </div>
     </div>

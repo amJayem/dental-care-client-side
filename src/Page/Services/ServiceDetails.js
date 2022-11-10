@@ -68,6 +68,7 @@ const ServiceDetails = () => {
             name="email"
             className="textarea mb-5"
             placeholder="your email"
+            required
           />
           <div className=" my-10">
             <span>Give a rating: </span>

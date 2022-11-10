@@ -28,7 +28,7 @@ const MyReviews = () => {
       <div className="grid md:grid-cols-2 gap-3 sm:grid-cols-1">
         {reviews.map((review) => (
           <>
-            <div className="border p-3 rounded-lg flex flex-col gap-3">
+            <div  className="border p-3 rounded-lg flex flex-col gap-3">
               <div>
                 <h1>
                   Comment:{" "}
@@ -38,6 +38,9 @@ const MyReviews = () => {
                 </h1>
                 <p>
                   Rating: <span>{review.rating}</span>
+                </p>
+                <p>
+                  service_id: <span>{review.service_id}</span>
                 </p>
               </div>
               <div>
