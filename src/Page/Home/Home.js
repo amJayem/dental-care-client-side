@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ServiceCard from "../Services/ServiceCard";
 import hero from "../../assets/hero-1.png";
 
@@ -7,7 +7,7 @@ const Home = () => {
   const services = useLoaderData();
   return (
     <div className="mt-10">
-      <div className="hero bg-base-200 my-16">
+      <div className="hero my-16">
         <img src={hero} alt="" className="blur-sm" />
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -28,6 +28,7 @@ const Home = () => {
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
       </div>
+      <p className="text-center my-10"><Link to='/services' className="btn btn-info text-white">View all services</Link></p>
     </div>
   );
 };

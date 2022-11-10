@@ -34,6 +34,26 @@ const MyReviews = () => {
 
     // })
 
+  };
+
+  const handleDelete = id => {
+    // console.log(id);
+     const proceed = window.confirm('Are you want to delete?');
+     if(proceed){
+      // console.log(proceed);
+      fetch(`http://localhost:5000/my-reviews/${id}`,{
+        method: 'DELETE'
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        if(data.deletedCount > 0){
+          const remaining = reviews.filter(r=>r._id !== id);
+          setReviews(remaining);
+        }
+      })
+      .catch(e=>console.error('delete error => ',e));
+     };
   }
 
   return (
@@ -62,41 +82,8 @@ const MyReviews = () => {
                 <p>{review._id}</p>
               </div>
               <div>
-                {/* The button to open modal */}
-                <label htmlFor="my-modal-6" className="btn btn-warning">
-                  Update
-                </label>
-
-                {/* Put this part before </body> tag */}
-                <input
-                  type="checkbox"
-                  id="my-modal-6"
-                  className="modal-toggle"
-                />
-                <div className="modal modal-bottom sm:modal-middle">
-                  <form onSubmit={(e)=>handleUpdate(review._id, e)} className="modal-box">
-                    <label
-                      htmlFor="my-modal-6"
-                      className="btn btn-sm btn-circle absolute right-2 top-2"
-                    >
-                      ✕
-                    </label>
-                    
-                    <p>Comment: <input className="text-xl font-semibold" type="text" name="updateComment"
-                    defaultValue={review.comment}/></p>
-                    <br />
-                    <p>Rating: <input className="text-xl font-semibold" type="text" name="updateRating" defaultValue={review.rating} /></p>
-
-                    <div className="modal-action">
-                      <button type="submit" htmlFor="my-modal-6" className="btn btn-warning">
-                        Update
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div>
-                <button className="btn btn-error">Delete</button>
+                <button className="btn btn-warning">Update</button>
+                <button onClick={()=> handleDelete(review._id)} className="btn btn-error ml-2">Delete</button>
               </div>
             </div>
           </>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { FallingLines } from 'react-loader-spinner';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
 
@@ -11,7 +12,12 @@ const PrivateRoute = ({children}) => {
     }
 
     if(loading){
-        return <>Loading.............</>;
+        return <FallingLines
+        color="#4fa94d"
+        width="100"
+        visible={true}
+        ariaLabel='falling-lines-loading'
+      />
     }
 
     return (

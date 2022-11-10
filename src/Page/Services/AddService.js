@@ -30,7 +30,7 @@ const AddService = () => {
             // console.log(data);
             if(data.acknowledged){
                 form.reset();
-                toast.success('Order places successfully..');
+                toast.success('Service added successfully..');
             }
         })
         .catch(e=>console.error('add service error => ', e));

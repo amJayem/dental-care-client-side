@@ -47,7 +47,7 @@ const ServiceDetails = () => {
         <p className="font-semibold my-10">Price of this service: {price}</p>
       </div>
       <div>
-        <Link className="btn btn-success">Book your appointment</Link>
+        <Link className="btn btn-info text-white">Book your appointment</Link>
       </div>
       <div>
         <h2 className="text-center text-2xl font-semibold"><Link to='/all-reviews'>Reviews</Link></h2>
@@ -81,7 +81,7 @@ const ServiceDetails = () => {
           </div>
           {/* <p>Review will be saved by: <b>{email}</b> this profile</p>
           <p>service id: {_id}</p> */}
-          <button type="submit" className="btn mt-10">
+          <button type="submit" className="btn btn-info text-white mt-10">
             Submit
           </button>
         </form>
