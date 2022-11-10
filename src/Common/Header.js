@@ -62,7 +62,11 @@ const Header = () => {
                     <Link to="/">Submenu 2</Link>
                   </li>
                 </ul>
-              </li><li>
+              </li>
+              <li>
+                <Link to='/blog'>Blog</Link>
+              </li>
+              <li>
                 <Link to="/add-service">Add Service</Link>
               </li>
               {user?.email ? (
