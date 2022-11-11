@@ -8,7 +8,6 @@ const Register = () => {
   SetTitle("Register");
   const { signUpUser } = useContext(AuthContext);
   
-
   const navigate = useNavigate();
 
   const from = "/";
@@ -16,8 +15,8 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const name = form.name.value;
-    // const photoUrl = form.photoUrl.value;
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
     const user = { email, password };

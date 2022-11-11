@@ -15,8 +15,8 @@ const UserReviews = ({review}) => {
                 <input type="radio" value={rating} name="rating" className="mask mask-star-2 bg-cyan-400" />
                 </div>
             </div>
-            <p className='text-slate-500 mt-5'> {review?.displayName}</p>
-            <img src={review?.photoURL} className='w-10 rounded-full' alt="" />
+            <p className='text-slate-500 mt-5'> {review?.displayName || 'reviewer-unknown'}</p>
+            <img src={review?.photoURL} className='w-10 rounded-full' alt="reviewer-img" />
             {/* <p>service id: {service_id}</p> */}
         </div>
     );

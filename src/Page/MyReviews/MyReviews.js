@@ -50,7 +50,7 @@ const MyReviews = () => {
   return (
     <div>
       <h1 className="text-5xl font-semibold">
-        Your all reviews: {reviews.length}
+        <p>{reviews?.length ? `Your all reviews: ${reviews.length}` : 'No reviews were added'}</p>
       </h1>
       <p className="my-3">{reviews[0]?.email}</p>
       <div className="grid md:grid-cols-2 gap-3 sm:grid-cols-1">
