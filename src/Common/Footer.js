@@ -25,7 +25,7 @@ const Footer = () => {
           <a href="/" className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer sm:grid-flow-col px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <footer className="footer sm:grid-flow-col px-10 py-4 border-t bg-cyan-200 text-base-content border-base-300">
         <div className="items-center grid-flow-col">
           
           <p>

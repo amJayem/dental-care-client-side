@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import SetTitle from "../../hooks/setTitle";
 
@@ -24,21 +25,6 @@ const MyReviews = () => {
       })
       .catch((e) => console.error("reviews by email error => ", e));
   }, [user?.email]);
-
-  // update review
-  // const handleUpdate = (id,e) =>{
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const comment = form.updateComment.value;
-  //   const rating = form.updateRating.value;
-  //   const updateReview = {comment, rating};
-  //   console.log(id,updateReview);
-
-  //   fetch(`http://localhost:5000/reviews/${id}`,{
-
-  //   })
-
-  // };
 
   const handleDelete = id => {
     // console.log(id);
@@ -87,7 +73,9 @@ const MyReviews = () => {
                 <p>{review._id}</p>
               </div>
               <div>
-                <button className="btn btn-warning">Update</button>
+                <button className="btn btn-warning">
+                  <Link to={`/edit-my-review/${review._id}`}>Update</Link>
+                </button>
                 <button onClick={()=> handleDelete(review._id)} className="btn btn-error ml-2">Delete</button>
               </div>
             </div>

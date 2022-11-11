@@ -4,6 +4,7 @@ import Main from '../Layout/Main';
 import Blog from '../Page/Blog/Blog';
 import Home from '../Page/Home/Home';
 import Login from '../Page/Login/Login';
+import EditReview from '../Page/MyReviews/EditReview';
 import MyReviews from '../Page/MyReviews/MyReviews';
 import Register from '../Page/Register/Register';
 import ReviewsAll from '../Page/Reviews/ReviewsAll';
@@ -53,6 +54,10 @@ export const routes = createBrowserRouter([
                     <MyReviews/>
                 </PrivateRoute>,
                 // loader: ()=>fetch(`http://localhost:5000/my-reviews`)
+            },
+            {
+                path: '/edit-my-review/:id',
+                element: <EditReview/>
             },
             {
                 path: '/login',
