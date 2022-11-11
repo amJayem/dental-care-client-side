@@ -21,12 +21,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: ()=>fetch(`http://localhost:5000/home/`)
+                loader: ()=>fetch(`https://11-dental-care-server.vercel.app/home/`)
             },
             {
                 path: '/services',
                 element: <Services/>,
-                loader: ()=>fetch('http://localhost:5000/services')
+                loader: ()=>fetch('https://11-dental-care-server.vercel.app/services')
             },
             {
                 path: '/blog',
@@ -35,7 +35,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'service-details/:id',
                 element: <ServiceDetails/>,
-                loader: ({params})=>fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({params})=>fetch(`https://11-dental-care-server.vercel.app/service/${params.id}`)
             },
             {
                 path: '/add-service',
@@ -46,14 +46,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/all-reviews',
                 element: <ReviewsAll></ReviewsAll>,
-                loader: ()=>fetch('http://localhost:5000/reviews')
+                loader: ()=>fetch('https://11-dental-care-server.vercel.app/reviews')
             },
             {
                 path: 'my-reviews',
                 element: <PrivateRoute>
                     <MyReviews/>
                 </PrivateRoute>,
-                // loader: ()=>fetch(`http://localhost:5000/my-reviews`)
+                // loader: ()=>fetch(`https://11-dental-care-server.vercel.app/my-reviews`)
             },
             {
                 path: '/edit-my-review/:id',

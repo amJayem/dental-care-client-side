@@ -19,7 +19,7 @@ const ServiceDetails = () => {
 
   // previous reviews to display
   useEffect(()=>{
-    fetch('http://localhost:5000/reviews')
+    fetch('https://11-dental-care-server.vercel.app/reviews')
     .then(res=>res.json())
     .then(data=>{
       // console.log(data);
@@ -42,7 +42,7 @@ const ServiceDetails = () => {
     const review = { comment, rating, email, service_id, title, price, img, photoURL, displayName };
     console.log(review);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://11-dental-care-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

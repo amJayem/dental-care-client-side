@@ -20,7 +20,7 @@ const AddService = () => {
             img, price, description
         };
 
-        fetch('http://localhost:5000/services/',{
+        fetch('https://11-dental-care-server.vercel.app/services/',{
             method: "POST",
             headers:{
                 'content-type': 'application/json'

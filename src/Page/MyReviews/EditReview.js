@@ -14,7 +14,7 @@ const EditReview = () => {
   // console.log(review);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://11-dental-care-server.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
@@ -32,7 +32,7 @@ const EditReview = () => {
 
     console.log(updateReview);
 
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://11-dental-care-server.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
