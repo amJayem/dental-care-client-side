@@ -1,6 +1,6 @@
 # Dental care
 
-The live site of this project [Dental Care](http://localhost:5000/reviews).
+The live site of this project [Dental Care](https://dental-care-amjayem.web.app/).
 
 ## Features
 
