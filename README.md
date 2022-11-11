@@ -1,6 +1,6 @@
 # Dental care
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The live site of this project [Dental Care](http://localhost:5000/reviews).
 
 ## Features
 

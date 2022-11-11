@@ -12,21 +12,21 @@ const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   const { service_id, title, img, price, description } = serviceDetails;
   const { user } = useContext(AuthContext);
-
+  const [refresh, setRefresh] = useState(false);
   const [review, setReview] = useState([]);
 
   // console.log(serviceDetails);
 
   // previous reviews to display
   useEffect(()=>{
-    fetch('https://11-dental-care-server.vercel.app/reviews')
+    fetch('http://localhost:5000/reviews')
     .then(res=>res.json())
     .then(data=>{
       // console.log(data);
       setReview(data);
     })
     .catch(e=>console.error('review loading error => ',e));
-  },[]);
+  },[refresh]);
 
   // console.log('fetching review: ',review);
 
@@ -40,7 +40,7 @@ const ServiceDetails = () => {
     const review = { comment, rating, email, service_id, title, price, img };
     console.log(review);
 
-    fetch("https://11-dental-care-server.vercel.app/reviews", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,6 +53,7 @@ const ServiceDetails = () => {
         if (data.acknowledged) {
           form.reset();
           toast.success("Review Submitted");
+          setRefresh(!refresh);
         }
       })
       .catch((e) => console.error("review submit error => ", e));

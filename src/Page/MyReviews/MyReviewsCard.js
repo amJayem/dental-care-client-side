@@ -6,7 +6,7 @@ const MyReviewsCard = ({review, handleUpdate}) => {
     const [updateReview, setUpdateReview] = useState({});
 
     useEffect(()=>{
-        fetch(`https://11-dental-care-server.vercel.app/${service_id}`)
+        fetch(`http://localhost:5000/${service_id}`)
         .then(res=>res.json())
         .then(data=> setUpdateReview(data))
     },[service_id]); 
