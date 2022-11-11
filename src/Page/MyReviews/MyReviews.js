@@ -10,7 +10,7 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
-//   console.log(reviews);
+  // console.log(reviews);
 
   useEffect(() => {
     fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
@@ -58,19 +58,28 @@ const MyReviews = () => {
           <>
             <div className="border p-3 rounded-lg flex flex-col gap-3">
               <div>
+                <h1 className="text-xl font-semibold">{review.title}</h1>
                 <h1>
                   Comment:{" "}
-                  <span className="text-xl font-semibold">
+                  <span className="text-xl ">
                     {review.comment}
                   </span>
                 </h1>
                 <p>
-                  Rating: <span>{review.rating}</span>
+                  Rating: <p>
+                    <div className="rating">
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                  </div>
                 </p>
-                <p>
+                </p>
+                {/* <p>
                   service_id: <span>{review.service_id}</span>
-                </p>
-                <p>{review._id}</p>
+                </p> */}
+                {/* <p>{review._id}</p> */}
               </div>
               <div>
                 <button className="btn btn-warning">

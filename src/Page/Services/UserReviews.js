@@ -1,15 +1,22 @@
 import React from 'react';
 
-const UserReviews = ({rvw}) => {
+const UserReviews = ({review}) => {
     // console.log(rvw);
-    const { rating, comment, email, service_id, _id} = rvw;
+    const { comment, email} = review;
     return (
         <div className='border rounded-xl border-cyan-300 p-5 my-2'>
             <p>Comment: {comment}</p>
-            <p>Rating: {rating}</p>
             <p>user: {email}</p>
-            <p>service id: {service_id}</p>
-            <p>{_id}</p>
+            <div>
+            <div className="rating">
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+            </div>
+            </div>
+            {/* <p>service id: {service_id}</p> */}
         </div>
     );
 };

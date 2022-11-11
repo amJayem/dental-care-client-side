@@ -15,11 +15,14 @@ const ServiceDetails = () => {
 
   const [review, setReview] = useState([]);
 
-  // setting reviews to display
+  // console.log(serviceDetails);
+
+  // previous reviews to display
   useEffect(()=>{
     fetch('http://localhost:5000/reviews')
     .then(res=>res.json())
     .then(data=>{
+      // console.log(data);
       setReview(data);
     })
     .catch(e=>console.error('review loading error => ',e));
@@ -31,11 +34,11 @@ const ServiceDetails = () => {
   const handleSubmitRating = (e) => {
     e.preventDefault();
     const form = e.target;
-    const rating = form.rating.value;
+    // const rating = form.rating.value;
     const comment = form.comment.value;
     const email = form.email.value;
-    const review = { rating, comment, email, service_id };
-    // console.log(review);
+    const review = { comment, email, service_id, title, price, img };
+    console.log(review);
 
     fetch("http://localhost:5000/reviews", {
       method: "POST",
@@ -79,10 +82,10 @@ const ServiceDetails = () => {
         <hr />
         <div>
           {
-            review.filter(r=> r.service_id === service_id).map(rvw=>(
+            review.filter(r=> r.service_id === service_id).map(review=>(
               <UserReviews
-                key={rvw._id}
-                rvw={rvw}
+                key={review._id}
+                review={review}
               ></UserReviews>
             ))
           }
@@ -90,36 +93,40 @@ const ServiceDetails = () => {
         {/* <ReviewsAll/> */}
       </div>
       <div>
-        <form onSubmit={handleSubmitRating} className="grid grid-cols-1 mt-5">
+        <form onSubmit={handleSubmitRating} className="grid grid-cols-1 mt-2">
+          
           <input
-            type="text"
-            name="comment"
-            className="textarea mb-5"
-            placeholder="write a comment"
-          />
-          <input
-            type="text"
+            type="email"
             name="email"
             className="textarea mb-5"
-            placeholder="your email"
-            required
+            defaultValue={user?.email && `${user.email}`}
+            readOnly
           />
-          <div className=" my-10">
-            <span>Give a rating: </span>
-            <input
-              type="number"
-              name="rating"
-              placeholder=" 1 2 3 4 5"
-              className="w-xm"
-            />
+          <div className=" my-2">
+            <small className="ml-2">Give a rating: </small>
+            <div className="rating">
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+            </div>
+            <br />
+              <textarea
+                type="text"
+                name="comment"
+                className="textarea mt-3"
+                placeholder="write a comment"
+                required
+              />
           </div>
           {
             user?.email ?
-          <button type="submit" className="btn btn-info text-white mt-10">
+          <button type="submit" className="btn btn-info text-white mt-5">
             Submit
           </button>
           :
-          <Link to='/login' className="text-blue-700">Click here to Login</Link>
+          <Link to='/login' className="btn btn-warning mt-5">Login before submit</Link>
           
           }
         </form>

@@ -53,6 +53,8 @@ const EditReview = () => {
   return (
     <div>
       <form onSubmit={handleUpdate}>
+        <h1 className="text-2xl font-semibold">{review?.data?.title}</h1>
+        <img src={review?.data?.img} className='w-20' alt="" />
         <div className="form-control">
           <label className="label">
             <span className="label-text">Comments</span>
@@ -64,13 +66,17 @@ const EditReview = () => {
           ></textarea>
         </div>
         <br />
-        <input
-          type="text"
-          placeholder="Type here"
-          className="input w-full max-w-xs"
-          name="rating"
-          defaultValue={review?.data?.rating}
-        />
+          <div className="my-3">
+              <p>
+                <div className="rating">
+                  <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                  <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
+                  <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                  <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                  <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              </div>
+            </p>
+          </div>
         <div>
           <button className="btn" type="submit">
             Update review
