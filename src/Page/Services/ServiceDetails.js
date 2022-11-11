@@ -105,7 +105,7 @@ const ServiceDetails = () => {
             defaultValue={user?.email && `${user.email}`}
             readOnly
           />
-          <div className=" my-2">
+          <div className="form-control my-2">
             <small className="ml-2">Give a rating: </small>
             <div className="rating">
               <input type="radio" name="rating" value='1' className="mask mask-star-2 bg-cyan-400" />
@@ -115,10 +115,14 @@ const ServiceDetails = () => {
               <input type="radio" name="rating" value='5' className="mask mask-star-2 bg-cyan-400" />
             </div>
             <br />
+              <label className="label">
+                <span className="label-text">
+                  <b>Put your comments here</b>
+                </span>
+              </label>
               <textarea
-                type="text"
                 name="comment"
-                className="textarea mt-3"
+                className="textarea textarea-bordered h-24 mt-3"
                 placeholder="write a comment"
                 required
               />
