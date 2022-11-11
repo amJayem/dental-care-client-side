@@ -46,7 +46,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/all-reviews',
                 element: <ReviewsAll></ReviewsAll>,
-                loader: ()=>fetch('http://localhost:5000/reviews')
+                loader: ()=>fetch('https://11-dental-care-server.vercel.app/reviews')
             },
             {
                 path: 'my-reviews',

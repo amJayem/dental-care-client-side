@@ -65,21 +65,17 @@ const MyReviews = () => {
                     {review.comment}
                   </span>
                 </h1>
-                <p>
-                  Rating: <p>
+                <div>
+                  Rating:
                     <div className="rating">
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating" value={review.rating} className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating" value={review.rating} className="mask mask-star-2 bg-cyan-400"  />
+                      <input type="radio" name="rating" value={review.rating} className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating" value={review.rating} className="mask mask-star-2 bg-cyan-400" />
+                      <input type="radio" name="rating" value={review.rating} className="mask mask-star-2 bg-cyan-400" />
                   </div>
-                </p>
-                </p>
-                {/* <p>
-                  service_id: <span>{review.service_id}</span>
-                </p> */}
-                {/* <p>{review._id}</p> */}
+                
+                </div>
               </div>
               <div>
                 <button className="btn btn-warning">

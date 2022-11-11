@@ -19,7 +19,7 @@ const ServiceDetails = () => {
 
   // previous reviews to display
   useEffect(()=>{
-    fetch('http://localhost:5000/reviews')
+    fetch('https://11-dental-care-server.vercel.app/reviews')
     .then(res=>res.json())
     .then(data=>{
       // console.log(data);
@@ -34,13 +34,13 @@ const ServiceDetails = () => {
   const handleSubmitRating = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const rating = form.rating.value;
+    const rating = form.rating.value;
     const comment = form.comment.value;
     const email = form.email.value;
-    const review = { comment, email, service_id, title, price, img };
+    const review = { comment, rating, email, service_id, title, price, img };
     console.log(review);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://11-dental-care-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -105,11 +105,11 @@ const ServiceDetails = () => {
           <div className=" my-2">
             <small className="ml-2">Give a rating: </small>
             <div className="rating">
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" checked />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
-              <input type="radio" name="rating-2" className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating" value='1' className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating" value='2' className="mask mask-star-2 bg-cyan-400" defaultChecked />
+              <input type="radio" name="rating" value='3' className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating" value='4' className="mask mask-star-2 bg-cyan-400" />
+              <input type="radio" name="rating" value='5' className="mask mask-star-2 bg-cyan-400" />
             </div>
             <br />
               <textarea
