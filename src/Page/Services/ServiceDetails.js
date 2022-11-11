@@ -37,7 +37,9 @@ const ServiceDetails = () => {
     const rating = form.rating.value;
     const comment = form.comment.value;
     const email = form.email.value;
-    const review = { comment, rating, email, service_id, title, price, img };
+    const displayName = form.displayName.value;
+    const photoURL = form.photoURL.value;
+    const review = { comment, rating, email, service_id, title, price, img, photoURL, displayName };
     console.log(review);
 
     fetch("http://localhost:5000/reviews", {
@@ -120,6 +122,8 @@ const ServiceDetails = () => {
                 placeholder="write a comment"
                 required
               />
+              <input type="text" name='photoURL' defaultValue={user?.photoURL} hidden/>
+              <input type="text" name='displayName' defaultValue={user?.displayName} hidden/>
           </div>
           {
             user?.email ?
@@ -127,7 +131,7 @@ const ServiceDetails = () => {
             Submit
           </button>
           :
-          <Link to='/login' className="btn btn-warning mt-5">Login before submit</Link>
+          <Link to='/login' className="btn btn-warning mt-5">Login before review</Link>
           
           }
         </form>
