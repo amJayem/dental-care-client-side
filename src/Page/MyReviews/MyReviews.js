@@ -54,7 +54,7 @@ const MyReviews = () => {
       </h1>
       <p className="my-3">{reviews[0]?.email}</p>
       <div className="grid md:grid-cols-2 gap-3 sm:grid-cols-1">
-        {reviews.map((review) => (
+        {reviews?.map((review) => (
           <>
             <div className="border p-3 rounded-lg flex flex-col gap-3">
               <div>

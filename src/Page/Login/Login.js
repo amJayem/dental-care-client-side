@@ -8,7 +8,6 @@ const Login = () => {
   SetTitle("Login");
   const { signInUser } = useContext(AuthContext);
 
-
   const location = useLocation();
   const navigate = useNavigate();
 

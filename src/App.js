@@ -4,7 +4,9 @@ import { routes } from "./Routes/Routes";
 
 function App() {
   SetTitle("");
-  return <RouterProvider router={routes}></RouterProvider>;
+  return <>
+  <RouterProvider router={routes}></RouterProvider>
+  </>
 }
 
 export default App;
