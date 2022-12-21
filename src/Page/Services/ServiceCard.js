@@ -7,10 +7,10 @@ const ServiceCard = ({service}) => {
   return (
     <div>
       <div className="card  bg-base-100 shadow-xl">
-        <figure>
+        <figure className="bg-teal-50 rounded-lg">
           <PhotoProvider>
             <PhotoView key={1} src={img}>
-              <img src={img} alt={` img of ${title}`} />
+              <img className="w-80 h-60" src={img} alt={` img of ${title}`} />
             </PhotoView>
           </PhotoProvider>
         </figure>

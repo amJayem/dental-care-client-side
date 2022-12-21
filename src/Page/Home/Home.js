@@ -53,8 +53,8 @@ const Home = () => {
         </p>
       </div>
       <h1 className="text-center font-bold text-4xl mt-20">Gentle, friendly treatment </h1>
-      <div className="grid  sm:grid-cols-1 md:grid-cols-3 gap-4 my-10">
-        <div className="card w-56 bg-base-100 shadow-xl ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-10">
+        <div className="card bg-base-100 shadow-xl ">
           <div className="card-body">
               01. <br />
               <p><b>Tight Schedule? No worries!</b></p>
@@ -65,7 +65,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="card w-56 bg-base-100 shadow-xl ">
+        <div className="card bg-base-100 shadow-xl ">
           <div className="card-body">
               02. <br />
               <p><b>Committed to Safety</b></p>
@@ -75,7 +75,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="card w-56 bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
               03. <br />
               <p><b>Smiles Without Stress</b></p>
